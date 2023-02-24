@@ -1,17 +1,16 @@
 import { useState } from 'react'
-import Comp1 from "@/components/comp1"
-import Comp2 from "@/components/comp2"
-import { Button } from "antd"
+import {Outlet, Link, useRoutes} from "react-router-dom"
+import router from "./router"
 function App() {
   const [count, setCount] = useState(0)
-
+  const outlet = useRoutes(router)
   return (
     <div className="App">
-      顶级组件
-      <Comp1></Comp1>
-      <Comp2></Comp2>
-      <Button>22</Button>
-    </div>
+      <Link to='/home'>Home</Link>
+      <Link to='/about'>About</Link>
+      {/* <Outlet></Outlet> */}
+      {outlet}
+    </div> 
   )
 }
 
